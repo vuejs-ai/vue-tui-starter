@@ -8,9 +8,10 @@ A [vue-tui](https://github.com/vuejs-ai/vue-tui) app — a Vue interface that ru
 
 ```sh
 npm install
-npm run dev      # terminal dev server with HMR (experimental) — edit src/app.vue, watch it update
-npm run build    # bundle src/main.ts -> dist/main.js
-npm run preview  # build, then run the production output
+npm run dev         # terminal dev server with HMR (experimental) — edit src/app.vue, watch it update
+npm run type-check  # type-check .ts + .vue with vue-tsc
+npm run build       # type-check and bundle src/main.ts -> dist/main.js
+npm run preview     # bundle, then run the production output
 ```
 
 Press `q` to quit the app.
