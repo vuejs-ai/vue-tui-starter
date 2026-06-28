@@ -36,14 +36,15 @@ plugin:
 - **`npm run build`** — bundles `src/main.ts` into a single `dist/main.js`.
 - **`npm run preview`** — builds, then runs the production output.
 
-Its `vite.config.ts` is minimal — `vueTui()` is the only plugin you need:
+Its `vite.config.ts` composes `@vitejs/plugin-vue` (compiles your SFCs) with `vueTui()` (the terminal dev server + production build):
 
 ```ts
 import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 import { vueTui } from "@vue-tui/vite";
 
 export default defineConfig({
-  plugins: [vueTui()],
+  plugins: [vue(), vueTui()],
 });
 ```
 
