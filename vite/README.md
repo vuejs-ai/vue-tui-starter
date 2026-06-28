@@ -20,7 +20,7 @@ Press `q` to quit the app.
 ```
 src/
   main.ts    # createApp(App).mount()
-  app.vue    # your UI — starts with a <Spinner>, then greets
+  app.vue    # your UI — a <Spinner> loads, then a +/- counter (press + or =, and -)
 vite.config.ts  # plugins: [vueTui()]
 ```
 

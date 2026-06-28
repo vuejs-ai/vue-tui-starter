@@ -4,6 +4,7 @@ import { Box, Text, useApp, useInput } from "@vue-tui/runtime";
 import { Spinner } from "@vue-tui/components";
 
 const ready = shallowRef(false);
+const count = shallowRef(0);
 const { exit } = useApp();
 
 // Give the <Spinner> from @vue-tui/components a brief moment before we greet —
@@ -19,6 +20,10 @@ onMounted(() => {
 onUnmounted(() => clearTimeout(timer));
 
 useInput((input) => {
+  // Accept "=" as well as "+": on most keyboards "+" is Shift+"=", so taking the
+  // bare "=" key too makes incrementing friction-free.
+  if (input === "+" || input === "=") count.value++;
+  if (input === "-") count.value--;
   if (input === "q") exit();
 });
 </script>
@@ -28,10 +33,9 @@ useInput((input) => {
     <Spinner v-if="!ready" type="dots" color="cyan" label="Starting up" />
     <template v-else>
       <Text bold color="green">Hello from vue-tui 👋</Text>
-      <Text dimColor>Edit src/app.vue and save — the terminal updates instantly.</Text>
+      <Text>Count: <Text bold color="cyan">{{ count }}</Text></Text>
+      <Text dimColor>Press + (or =) to add, - to subtract, q to quit.</Text>
+      <Text dimColor>Edit src/app.vue and save to see HMR.</Text>
     </template>
-    <Box :margin-top="1">
-      <Text dimColor>Press q to quit.</Text>
-    </Box>
   </Box>
 </template>
