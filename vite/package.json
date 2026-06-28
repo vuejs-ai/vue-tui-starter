@@ -1,0 +1,25 @@
+{
+  "name": "my-vue-tui-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite build && node dist/main.js"
+  },
+  "dependencies": {
+    "@vue-tui/components": "^0.1.1",
+    "@vue-tui/runtime": "^0.1.1",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.4",
+    "@vue-tui/vite": "^0.1.1",
+    "typescript": "^5",
+    "vite": "^8"
+  }
+}
