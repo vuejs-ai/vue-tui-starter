@@ -10,8 +10,8 @@ A [vue-tui](https://github.com/vuejs-ai/vue-tui) app — a Vue interface that ru
 npm install
 npm run dev         # terminal dev server with HMR (experimental) — edit src/app.vue, watch it update
 npm run type-check  # type-check .ts + .vue with vue-tsc
-npm run build       # type-check and bundle src/main.ts -> dist/main.js
-npm run preview     # bundle, then run the production output
+npm run build       # type-check, then bundle src/main.ts -> a self-contained dist/main.mjs
+npm run preview     # build, then run the production output
 ```
 
 Press `q` to quit the app.
@@ -22,7 +22,8 @@ Press `q` to quit the app.
 src/
   main.ts    # createApp(App).mount()
   app.vue    # your UI — a <Spinner> loads, then a +/- counter (press + or =, and -)
-vite.config.ts  # plugins: [vue(), vueTui()]
+vite.config.ts    # dev server (HMR): plugins: [vue(), vueTui()]
+tsdown.config.ts  # production build: bundle into one self-contained dist/main.mjs
 ```
 
 Built with [`@vue-tui/runtime`](https://www.npmjs.com/package/@vue-tui/runtime),
